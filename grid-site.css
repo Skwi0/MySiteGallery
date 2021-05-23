@@ -1,0 +1,141 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+#grid{
+	height: 100vh;
+	width: 100vw;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 60px 1fr 50px;
+	grid-template-rows: 10% 1fr 10%;
+	grid-template-areas: "header header nav"
+                         "ads main nav"
+                         "ads footer footer";
+}
+#grid>div{
+	background-color: #e6e6e6;
+}
+.header{
+	 grid-area: header;
+	
+}
+.main{
+	 grid-area: main;
+	 display: grid;
+	 grid-template-columns: repeat(4,1fr);
+	 grid-template-rows: repeat(5,1fr);
+	 grid-gap: 5px;
+	 grid-template-areas: "item1 item2 item4 item4"
+                          "item3 item3 item4 item4"
+                          "item3 item3 item4 item4"
+                          "item5 item5 item6 item6"
+                          "item5 item5 item6 item6";
+	
+}
+.main>div{
+	background-color: tomato;
+}
+
+.ads{
+	 grid-area: ads;
+	
+}
+
+.nav{
+	 grid-area: nav;
+		
+}
+.footer{
+	 grid-area: footer;	
+}
+
+/*MAIN ITEMS*/
+
+.item1{
+	grid-area: item1;
+}
+
+.item2{
+	grid-area: item2;	
+}
+
+.item3{
+	grid-area: item3;
+}
+
+.item4{
+	grid-area: item4;
+}
+
+.item5{
+	grid-area: item5;
+}
+
+.item6{
+	grid-area: item6;	
+}
+.img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	display:block;
+}
+@keyframes modalshow{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+.modal{
+	display:none;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	animation: modalshow 1s 1 forwards;
+	justify-content: center;
+	align-items: center;
+}
+.modal:target{
+	display: flex;
+}
+.modal_content{
+	position: relative;
+	background-color: rgba(255, 255, 255,0.5);
+	width: 80%;
+	height: 80%;
+	border-radius: 20px;
+	text-align: center;
+	flex-wrap: wrap;
+}
+.modal_hide{
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	height: 60px;
+	width: 60px;
+	font-size: 48px;
+	text-decoration: none;
+	color: black;
+}
+.modal_content audio{
+	margin-top: 20px;
+	width: 80%;
+}
+.modal_content video{
+	width: 85%;
+	height: 80%;
+}
+.modal_content iframe{
+	border-radius: 30px;
+	margin-top: 10px;	
+	width: 85%;
+	height: 80%;
+}
